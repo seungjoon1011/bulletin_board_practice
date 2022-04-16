@@ -1,0 +1,28 @@
+<!doctype html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <h1><a href="/">승준닷컴</a></h1>
+        <title>id<%=Id%></title>
+    </head>
+    <body>
+    <h1>
+        <%=title%>
+    </h1>
+        <%=description%>
+        <br><br>
+        <%=time%>
+        <br>
+        by<%=author%>
+        <br>
+        <%if(`${topic_user_id}`!=`undefined`){%>
+            <%if(`${topic_user_id}`==`${user_id}`){%>
+                <a href="/update/<%=Id%>">업데이트</a>
+                <form action ="/delete_process" method="post">
+                    <input type="hidden" name="id" value="${Id}">
+                    <input type="submit" value="삭제">
+                </form> 
+            <%}%>
+        <%}%>
+    </body>
+    </html>

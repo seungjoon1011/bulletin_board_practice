@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <title><%=title%></title>
+    <meta charset="utf-8">
+    <style>
+        p{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1><a href="/">승준닷컴</a></h1>
+    <form action = <%=action%> method="post">
+        <p>
+            <input type = "text" name = "title" value=<%=topicTitle%>>
+        </p>
+        <p>
+            <textarea name = "description"><%=topicDescription%></textarea>
+        </p>
+        <p>
+            <input type = "submit">
+        </p>
+    </form>
+</body>
+</html>

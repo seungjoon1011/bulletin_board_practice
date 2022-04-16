@@ -1,0 +1,61 @@
+<!doctype html>
+    <html lang="ko">
+    <head>  
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <title>승준닷컴</title>
+        <style>
+            body{
+                margin-top:0px;
+            }
+            p{
+                margin-top:0px;
+                float : right;
+                font-size : 200%;
+            }
+            ol{
+                padding-top:100px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><a href="/">승준닷컴</a></h1>
+        <%if(loging){%>
+            <p>
+                <a href="/user/create_account">회원가입</a>
+                <form action = "/logout_process" method="post">
+                    <input type = "submit" value ="logout">
+                </form>
+            </p>
+            <h2><a href="/create">글 작성<a></h2>
+        <%}else{%>
+            <p>
+                <a href="/user/create_account">회원가입</a>
+                <a href="/login">로그인</a>
+            </p>
+            <h2>
+        <%}%>
+        <h3>            
+        <ol>
+            <%-list%>
+        </ol>
+        <nav>
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <%for(let i = 1;i<numOfpage+1;i++){%>
+                <li><a href="/page/<%=i%>""> <%=i%></a></li>
+              <%}%>        
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </h3>
+    </body>
+    </html>
