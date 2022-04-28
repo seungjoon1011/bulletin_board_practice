@@ -13,12 +13,12 @@
         <br><br>
         <%=time%>
         <br>
-        by<%=author%>
+        by <%=author%>
         <br>
         <%if(`${topic_user_id}`!=`undefined`){%>
             <%if(`${topic_user_id}`==`${user_id}`){%>
-                <a href="/update/<%=Id%>">업데이트</a>
-                <form action ="/delete_process" method="post">
+                <a href="/topic/update/<%=Id%>">업데이트</a>
+                <form action ="/topic/delete_process" method="post">
                     <input type="hidden" name="id" value="${Id}">
                     <input type="submit" value="삭제">
                 </form> 

@@ -5,40 +5,58 @@
         <meta charset="UTF-8">
         <title>승준닷컴</title>
         <style>
+          h1{
+            font-size:70px;
+            border-bottom:solid;
+            border-bottom:outset blue;
+            margin-bottom:20px;
+            margin-top:0px;
+          }
+          h3{
+            margin-top:100px;
+          }
             body{
                 margin-top:0px;
             }
-            p{
-                margin-top:0px;
-                float : right;
-                font-size : 200%;
-            }
-            ol{
-                padding-top:100px;
+            form{
+              display:inline;
             }
         </style>
     </head>
     <body>
         <h1><a href="/">승준닷컴</a></h1>
         <%if(loging){%>
-            <p>
-                <a href="/user/create_account">회원가입</a>
-                <form action = "/logout_process" method="post">
-                    <input type = "submit" value ="logout">
-                </form>
-            </p>
-            <h2><a href="/create">글 작성<a></h2>
+          <h2 style = "float:right; margin-top:0px;">
+            <a href="/user/create_account">회원가입</a>
+            <form action = "/user/logout_process" method="post">
+                <input type = "submit" value ="로그아웃">
+            </form>
+          </h2>
+            <h2><a href="/topic/create">글 작성<a></h2>
         <%}else{%>
-            <p>
+            <h2 style="float:right;">
                 <a href="/user/create_account">회원가입</a>
-                <a href="/login">로그인</a>
-            </p>
-            <h2>
+                <a href="/user/login">로그인</a>
+            </h2>
         <%}%>
-        <h3>            
-        <ol>
-            <%-list%>
-        </ol>
+        <h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">title</th>
+                <th scope="col">author</th>
+                <th scope="col">date</th>
+              </tr>
+            </thead>
+          <tbody>
+            <%for(let i=list.length-1;i>=0;i--){%>
+              <tr>
+                <%-list[i]%>
+              </tr>
+            <%}%>
+          </tbody>
+          </table>
         <nav>
             <ul class="pagination">
               <li>
@@ -47,7 +65,7 @@
                 </a>
               </li>
               <%for(let i = 1;i<numOfpage+1;i++){%>
-                <li><a href="/page/<%=i%>""> <%=i%></a></li>
+                <li><a href="/<%=i%>""> <%=i%></a></li>
               <%}%>        
               <li>
                 <a href="#" aria-label="Next">

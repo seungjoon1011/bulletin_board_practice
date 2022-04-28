@@ -13,15 +13,25 @@
 <body>
     <h1><a href="/">승준닷컴</a></h1>
     <form action = <%=action%> method="post">
-        <p>
-            <input type = "text" name = "title" value=<%=topicTitle%>>
-        </p>
-        <p>
-            <textarea name = "description"><%=topicDescription%></textarea>
-        </p>
-        <p>
-            <input type = "submit">
-        </p>
+        <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputTitle3" class="col-sm-2 control-label">Title</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="title" value=<%=topicTitle%>>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputDescription3" class="col-sm-2 control-label">Description</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" name = "description" rows="3"><%=topicDescription%></textarea>
+            </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Sign in</button>
+              </div>
+            </div>
+          </form>
     </form>
 </body>
 </html>
